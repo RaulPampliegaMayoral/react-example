@@ -42,8 +42,8 @@ class SearchFetchDataComponent extends React.Component {
 
     render = () => {
         return (
-            <div class="search-content"> 
-                <button class="btn btn-primary mb-2" onClick={this.handleClick}>SEARCH</button>
+            <div className="search-content"> 
+                <button className="btn btn-primary mb-2" onClick={this.handleClick}>SEARCH</button>
                 <SearchDataResultComponent result = {this.state} />
             </div>
         );

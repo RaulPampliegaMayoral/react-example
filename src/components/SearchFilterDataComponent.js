@@ -29,23 +29,23 @@ class SearchFilterDataComponent extends React.Component {
 
     componentDidMount() {
         const hotels = [];
-        hotels.push(<option selected value="-1">Elije una opción</option>);
-        hotels.push(<option value="44069509">Hotel Baqueira Val de Neu</option>);
-        hotels.push(<option value="10030559">Hotel Moderno</option>);
-        hotels.push(<option value="100376478">Hotel Grand Luxor</option>);
+        hotels.push(<option key="-1" value="-1">Elije una opción</option>);
+        hotels.push(<option key="44069509" value="44069509">Hotel Baqueira Val de Neu</option>);
+        hotels.push(<option key="10030559" value="10030559">Hotel Moderno</option>);
+        hotels.push(<option key="100376478" value="100376478">Hotel Grand Luxor</option>);
         this.setState({hotels: hotels});
     }
 
     render() {
         const startDate = this.props.date;
         return (
-            <div class="form-inline">
-                <div class="form-group mx-sm-3 mb-2">
-                    <select class="form-control" value={this.props.hotel} onChange={this.handleHotelChange}>
+            <div className="form-inline">
+                <div className="form-group mx-sm-3 mb-2">
+                    <select className="form-control" value={this.props.hotel} onChange={this.handleHotelChange}>
                         {this.state.hotels}
                     </select>
                 </div>
-                <div class="form-group mx-sm-3 mb-2">
+                <div className="form-group mx-sm-3 mb-2">
                 <DatePicker 
                         selected={startDate} 
                         onChange={this.datePickerHandleChange}
@@ -53,7 +53,7 @@ class SearchFilterDataComponent extends React.Component {
                 />
                 </div>
 
-                <div class="form-group mx-sm-3 mb-2">
+                <div className="form-group mx-sm-3 mb-2">
                     <input type="text" pattern="[0-9]*" value={this.props.nights} onChange={this.handleNightsChange} />
                 </div>
             </div>
