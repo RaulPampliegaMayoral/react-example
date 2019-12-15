@@ -15,15 +15,6 @@ function occupancyFormatter(cell, row) {
   )
 }
 
-function priceFormmatter(cell, row) {
-  return (
-    <label>
-      <span>{cell.netPrice} </span>
-      <span>&nbsp;{cell.currency} </span>
-    </label>
-  )
-}
-
 const columns = [
   {
     dataField: 'roomName',
