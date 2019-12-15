@@ -36,15 +36,35 @@ const columns = [
   {
     dataField: 'netPrice',
     text: 'Precio',
+    sort: true
   },
   {
     dataField: 'currency',
     text: ''
   }];
 
+  const sortOption = {
+    // No need to configure sortFunc per column
+    sortFunc: (a, b, order, dataField) => {
+      const valueA = Number(a.replace(/[^0-9.-]+/g,""));
+      const valueB = Number(b.replace(/[^0-9.-]+/g,""));
+
+      if (order === 'asc') {
+        return valueA- valueB; // asc
+      }
+
+      return valueB- valueA; // asc
+    }
+  };
+
+  const defaultSorted = [
+    { dataField: "netPrice", order: "asc" }
+  ];
+
 const SearchDataResultComponent = (props) => {
     if( props.result.isFetching )
       return (<div id="search-results">Loading....</div>);
+      
 
     return(
         <div id="search-results">
@@ -53,6 +73,8 @@ const SearchDataResultComponent = (props) => {
                 data={props.result.data}
                 columns={columns}
                 bordered={ false }
+                defaultSorted={defaultSorted}
+                sort={ sortOption }
                 striped
                 hover
                 condensed
