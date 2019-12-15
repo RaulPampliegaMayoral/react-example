@@ -46,8 +46,9 @@ const columns = [
   const sortOption = {
     // No need to configure sortFunc per column
     sortFunc: (a, b, order, dataField) => {
-      const valueA = Number(a.replace(/[^0-9.-]+/g,""));
-      const valueB = Number(b.replace(/[^0-9.-]+/g,""));
+      ///Quitamos la ',' al valor para poder hacer una ordenación correcta
+      const valueA = Number(a.replace(/(,)/g,""));
+      const valueB = Number(b.replace(/(,)/g,""));
 
       if (order === 'asc') {
         return valueA- valueB; // asc
